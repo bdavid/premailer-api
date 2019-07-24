@@ -10,7 +10,7 @@ REDIS_HOST = ENV['REDIS_HOST']
 REDIS_PORT = ENV['REDIS_PORT']
 REDIS_DB = ENV['REDIS_DB']
 if REDIS_HOST.nil? || REDIS_PORT.nil? || REDIS_DB.nil?
-  puts "Environment variables REDIS_HOST, REDIS_PORT and REDIS_DB are required."
+  puts "Environment variables REDIS_HOST, REDIS_PORT, REDIS_DB and REDIS_PASSWORD are required."
   exit
 end
 
