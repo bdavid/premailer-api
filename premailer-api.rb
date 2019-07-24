@@ -33,7 +33,7 @@ post '/api/0.1/documents' do
   # Write the HTML output to Redis
   htmlFilename = "#{SecureRandom.uuid}.html"
   htmlContent = premailer.to_inline_css
-  redis = Redis.new(:host => REDIS_HOST, :port => REDIS_PORT, :db => REDIS_DB)
+  redis = Redis.new(:host => REDIS_HOST, :port => REDIS_PORT, :db => REDIS_DB, :password => REDIS_PASSWORD)
   redis.setex(htmlFilename, REDIS_HTML_EXPIRY, htmlContent)
 
   htmlPath = "html/#{htmlFilename}"
@@ -42,7 +42,7 @@ post '/api/0.1/documents' do
 end
 
 get '/html/:filename' do |filename|
-  redis = Redis.new(:host => REDIS_HOST, :port => REDIS_PORT, :db => REDIS_DB)
+  redis = Redis.new(:host => REDIS_HOST, :port => REDIS_PORT, :db => REDIS_DB, :password => REDIS_PASSWORD)
   content = redis.get(filename)
 
   if content.nil?
