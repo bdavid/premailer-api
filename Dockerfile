@@ -5,4 +5,4 @@ WORKDIR /opt/premailer-api
 RUN chmod u+x premailer-api.rb
 RUN bundle install
 EXPOSE 4567
-CMD ["/opt/premailer-api/premailer-api.rb"]
+CMD ["irb", "./premailer-api.rb"]
