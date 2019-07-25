@@ -1,3 +1,4 @@
+# FROM ruby
 FROM ruby:2.3.8
 RUN gem install bundler
 RUN git clone https://github.com/bdavid/premailer-api.git /opt/premailer-api
