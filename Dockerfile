@@ -1,4 +1,5 @@
 FROM ruby
+RUN gem install bundler
 RUN bundle version
 RUN bundle config --global frozen 1
 RUN git clone https://github.com/bdavid/premailer-api.git /opt/premailer-api
