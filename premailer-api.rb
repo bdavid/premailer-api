@@ -1,3 +1,5 @@
+#!/usr/bin/env ruby --disable-gems
+
 require 'sinatra'
 require 'sinatra/streaming'
 require 'premailer'
