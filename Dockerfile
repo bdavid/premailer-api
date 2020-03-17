@@ -7,4 +7,5 @@ RUN chmod u+x premailer-api.rb
 RUN bundle install
 RUN gem install nokogiri
 EXPOSE 4567
-CMD ["ruby", "premailer-api.rb", "-o", "0.0.0.0"]
+# CMD ["ruby", "premailer-api.rb", "-o", "0.0.0.0"]
+CMD ["bundle", "exec", "ruby", "premailer-api.rb", "-o", "0.0.0.0"]
