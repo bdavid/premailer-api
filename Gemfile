@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'tilt', '= 2.0.9'
+gem 'tilt', '= 2.0.10'
 gem 'sinatra', '= 2.0.8.1'
 gem 'sinatra-contrib', '= 2.0.8.1'
 gem 'thin', '= 1.7.2'
