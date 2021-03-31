@@ -6,22 +6,11 @@ require 'redis'
 
 REDIS_HTML_EXPIRY = 600
 
-REDIS_SENTINELS = ENV['REDIS_SENTINELS']
+REDIS_URL = ENV['REDIS_URL']
 REDIS_DB = ENV['REDIS_DB']
-REDIS_PASSWORD = ENV['REDIS_PASSWORD']
-REDIS_MASTER = ENV['REDIS_MASTER']
-
-if REDIS_SENTINELS.nil? || REDIS_DB.nil? || REDIS_PASSWORD.nil? || REDIS_MASTER.nil?
-  puts "Environment variables REDIS_SENTINELS, REDIS_DB, REDIS_PASSWORD and REDIS_MASTER are required."
+if REDIS_URL.nil? || REDIS_DB.nil?
+  puts "Environment variables REDIS_URL and REDIS_DB are required."
   exit
-end
-
-Sentinel = Struct.new(:host, :port, :password)
-sentinels = Array.new 
-REDIS_SENTINELS.split(",").each do |host|
-    hostAndPort = host.split(":")
-    sentinel = Sentinel.new(hostAndPort[0], hostAndPort[1])
-    sentinels.push(sentinel)
 end
 
 configure do
@@ -43,7 +32,7 @@ post '/api/0.1/documents' do
   # Write the HTML output to Redis
   htmlFilename = "#{SecureRandom.uuid}.html"
   htmlContent = premailer.to_inline_css
-  redis = Redis.new(url: "redis://" + REDIS_MASTER, sentinels: sentinels, password: REDIS_PASSWORD, db: REDIS_DB)
+  redis = Redis.new(url: REDIS_URL, db: REDIS_DB)
   redis.setex(htmlFilename, REDIS_HTML_EXPIRY, htmlContent)
 
   htmlPath = "html/#{htmlFilename}"
@@ -52,7 +41,7 @@ post '/api/0.1/documents' do
 end
 
 get '/html/:filename' do |filename|
-  redis = Redis.new(url: "redis://" + REDIS_MASTER, sentinels: sentinels, password: REDIS_PASSWORD, db: REDIS_DB)  
+  redis = Redis.new(url: REDIS_URL, db: REDIS_DB)
   content = redis.get(filename)
 
   if content.nil?
