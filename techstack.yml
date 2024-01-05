@@ -2,7 +2,7 @@ repo_name: bdavid/premailer-api
 report_id: e507883263963881a8aec9fa049f2fcb
 version: 0.1
 repo_type: Public
-timestamp: '2023-12-27T14:15:04+00:00'
+timestamp: '2024-01-05T08:14:49+00:00'
 requested_by: bdavid
 provider: github
 branch: master
@@ -17,6 +17,7 @@ tools:
   category: Languages & Frameworks
   sub_category: Languages
   image_url: https://img.stackshare.io/service/989/ruby.png
+  detection_source_url: https://github.com/bdavid/premailer-api
   detection_source: Repo Metadata
 - name: Sinatra
   description: Classy web-development dressed in a DSL
@@ -27,6 +28,7 @@ tools:
   category: Languages & Frameworks
   sub_category: Microframeworks (Backend)
   image_url: https://img.stackshare.io/service/999/logo.png
+  detection_source_url: https://github.com/bdavid/premailer-api/blob/master/Gemfile
   detection_source: Gemfile
   last_updated_by: Bienvenido David
   last_updated_on: 2020-04-13 15:47:33.000000000 Z
@@ -53,6 +55,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Virtual Machine Platforms & Containers
   image_url: https://img.stackshare.io/service/586/n4u37v9t_400x400.png
+  detection_source_url: https://github.com/bdavid/premailer-api
   detection_source: Repo Metadata
 - name: Git
   description: Fast, scalable, distributed revision control system
@@ -62,6 +65,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Version Control System
   image_url: https://img.stackshare.io/service/1046/git.png
+  detection_source_url: https://github.com/bdavid/premailer-api
   detection_source: Repo Metadata
 - name: RubyGems
   description: Easily download, install, and use ruby software packages on your system
@@ -71,6 +75,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Package Managers
   image_url: https://img.stackshare.io/service/12795/5jL6-BA5_400x400.jpeg
+  detection_source_url: https://github.com/bdavid/premailer-api/blob/master/Gemfile
   detection_source: Gemfile
   last_updated_by: Bienvenido David
   last_updated_on: 2015-06-01 03:56:20.000000000 Z
